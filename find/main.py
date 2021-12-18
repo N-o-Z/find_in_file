@@ -59,24 +59,19 @@ def binary_find(start, end, fd):
     mid = (end + start) // 2
     mid_line, pos_mid = find_last_line(mid, fd)
 
-    if mid_line > ARGS["search_term"]:
-        if mid_line == last_line:  # first < so it means that last line is the first <=
+    if mid_line >= ARGS["search_term"]:
+        if pos_mid == pos_last:  # first < so it means that last line is the first <=
             fd.seek(pos_last, 0)
             return fd.readline()
 
         return binary_find(start, mid, fd)
 
     elif mid_line < ARGS["search_term"]:
-        if mid_line == first_line:  # first < so it means that last line is the first <=
+        if pos_mid == pos_first:  # first < so it means that last line is the first <=
             fd.seek(pos_last, 0)
             return fd.readline()
 
         return binary_find(mid, end, fd)
-
-    # Equals
-    else:
-        fd.seek(pos_mid, 0)
-        return fd.readline()
 
 
 def main():
