@@ -21,7 +21,7 @@ in poor performance by modifying the _BLOCK_SIZE_MULTIPLIER_ parameter.
 **Installation:**
 
 This package requires a python3.8 environment with the wheel package installed.   
-To install run: pip install git+https://github.com/ozerynir/find_in_file.git  
+To install run: pip install git+https://github.com/N-o-Z/find_in_file.git  
 Alternatively you can clone the repository and install locally
 
 **Usage:**
